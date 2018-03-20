@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RecyclerViewExample.iml" filepath="$PROJECT_DIR$/RecyclerViewExample.iml" />
+      <module fileurl="file://D:\git\simple-recyclerview-example\RecyclerViewExample.iml" filepath="D:\git\simple-recyclerview-example\RecyclerViewExample.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\git\simple-recyclerview-example\app\app.iml" filepath="D:\git\simple-recyclerview-example\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/simple-recyclerview-example.iml" filepath="$PROJECT_DIR$/.idea/simple-recyclerview-example.iml" />
     </modules>
   </component>
 </project>

@@ -5,6 +5,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,33 +32,34 @@ public class MainActivity extends AppCompatActivity {
 
         productList = new ArrayList<>();
 
-        productList.add(new Product(
-                R.drawable.dellinspiron,
-                "Dell Inspiron",
-                "15.6Inch, Full HD",
-                "4.5",
-                40000
-        ));
+        DatabaseReference dbProducts = FirebaseDatabase.getInstance().getReference("products");
 
-        productList.add(new Product(
-                R.drawable.macbook,
-                "Apple Macbook Air",
-                "13.3Inch, HD",
-                "4.7",
-                50000
-        ));
+        dbProducts.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-        productList.add(new Product(
-                R.drawable.surface,
-                "Microsoft Surface",
-                "13.3Inch, HD",
-                "4.7",
-                50000
-        ));
+                if(dataSnapshot.exists()){
 
-        adapter = new ProductsAdapter(this, productList);
+                    for(DataSnapshot productSnapshot : dataSnapshot.getChildren()){
+                        Product p = productSnapshot.getValue(Product.class);
+                        productList.add(p);
+                    }
 
-        recyclerView.setAdapter(adapter);
+                    adapter = new ProductsAdapter(MainActivity.this, productList);
+                    recyclerView.setAdapter(adapter);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
 
     }
 }

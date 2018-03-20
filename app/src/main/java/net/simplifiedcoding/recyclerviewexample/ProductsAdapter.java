@@ -37,11 +37,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         Product product = productList.get(position);
 
         holder.textViewTitle.setText(product.getTitle());
-        holder.textViewShortDesc.setText(product.getShortDesc());
+        holder.textViewShortDesc.setText(product.getShortdesc());
         holder.textviewPrice.setText(String.valueOf(product.getPrice()));
-        holder.textViewRating.setText(product.getRating());
-        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage(), null));
-
+        holder.textViewRating.setText(String.valueOf(product.getRating()));
+//        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage(), null));
     }
 
     @Override

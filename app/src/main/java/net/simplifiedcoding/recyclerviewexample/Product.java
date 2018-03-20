@@ -6,19 +6,24 @@ package net.simplifiedcoding.recyclerviewexample;
 
 public class Product {
 
-    private int image;
-    private String title, shortDesc, rating;
+    private String image;
+    private String title, shortdesc;
     private double price;
+    private double rating;
 
-    public Product(int image, String title, String shortDesc, String rating, double price) {
-        this.image = image;
-        this.title = title;
-        this.shortDesc = shortDesc;
-        this.rating = rating;
-        this.price = price;
+    public Product(){
+
     }
 
-    public int getImage() {
+    public Product(String image, String title, String shortDesc, double price, double rating) {
+        this.image = image;
+        this.title = title;
+        this.shortdesc = shortDesc;
+        this.price = price;
+        this.rating = rating;
+    }
+
+    public String getImage() {
         return image;
     }
 
@@ -26,15 +31,15 @@ public class Product {
         return title;
     }
 
-    public String getShortDesc() {
-        return shortDesc;
-    }
-
-    public String getRating() {
-        return rating;
+    public String getShortdesc() {
+        return shortdesc;
     }
 
     public double getPrice() {
         return price;
+    }
+
+    public double getRating() {
+        return rating;
     }
 }
